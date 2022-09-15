@@ -31,9 +31,11 @@
                 <td>    
                     <a href="/planets/{{ $planet->id }}">詳細</a>
                 </td>
-            </tr>
+                
+            {{-- </tr> --}}
         @endforeach
         </tr>
+
 
         {{-- <td>
                     @foreach ($planets as $planet)
@@ -44,6 +46,7 @@
 
 
     </table>
+    <a href='/planets/create'>新規登録</a>
 </body>
 
 </html>
