@@ -74,7 +74,8 @@ class PlanetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $planet = Planet::find($id);
+        return view('planets.edit', ['planet' => $planet]);
     }
 
     /**
@@ -86,7 +87,20 @@ class PlanetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // ここはidで探して持ってくる以外はstoreと同じ
+        $planet = Planet::find($id);
+
+        // 値の用意
+        $planet->name = $request->name;
+        $planet->enname = $request->enname;
+        $planet->radius = $request->radius;
+        $planet->weight = $request->weight;
+
+        // 保存
+        $planet->save();
+
+        // 登録したらindexに戻る
+        return redirect('/planets');
     }
 
     /**
@@ -97,6 +111,9 @@ class PlanetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $planet = Planet::find($id);
+        $planet->delete();
+
+        return redirect('/planets');
     }
 }

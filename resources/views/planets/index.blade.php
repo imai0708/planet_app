@@ -16,23 +16,37 @@
             <th>名前(英語)</th>
             <th>半径</th>
             <th>重量</th>
-            
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
         {{-- @foreach ($planets as $planet) --}}
         {{-- <a href="/planets/{{ $planet->id }}">{{ $planet->name }}</a> --}}
         {{-- @endforeach --}}
-        
-        @foreach ($planets as $planet) 
+
+        @foreach ($planets as $planet)
             <tr>
                 <td>{{ $planet->name }}</td>
                 <td>{{ $planet->enname }}</td>
                 <td>{{ $planet->radius }}</td>
                 <td>{{ $planet->weight }}</td>
-                <td>    
+                <td>
                     <a href="/planets/{{ $planet->id }}">詳細</a>
                 </td>
+                <td>
+                    <a href="/planets/{{ $planet->id }}/edit">編集</a>
+                </td>
                 
-            {{-- </tr> --}}
+                {{-- 削除 --}}
+            <form action="/planets/{{ $planet->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <td>
+                    <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
+                </td>
+            </form>
+
+                {{-- </tr> --}}
         @endforeach
         </tr>
 
