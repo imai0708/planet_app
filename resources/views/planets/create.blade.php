@@ -49,12 +49,13 @@
         <p>
             <label for="weight">重量</label><br>
             {{-- <select> --}}
-            <input type="number" name="weight" min="0" max="10000000000" value="{{ old('rweight') }}">
+            <input type="number" name="weight" min="0" max="10000000000" value="{{ old('weight') }}">
             {{-- <size= "10000000000"> --}}
             {{-- </select> --}}
         </p>
 
         <input type="submit" value="新規登録">
+        <a href="/planets/">戻る</a>
 
     </form>
 

@@ -26,8 +26,8 @@ class PlanetRequest extends FormRequest
         return [
             'name' => 'required|string|max:100',
             'enname' => 'required|string|max:100',
-            'radius' =>'required|integer|max:20',
-            'weight' =>'required|integer|max:20',
+            'radius' =>'required|integer|max:10000000',
+            'weight' =>'required|integer|max:10000000',
         ];
     }
 }
